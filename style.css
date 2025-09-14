@@ -1,0 +1,257 @@
+/* Piltide laius 100% */
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform .6s ease;
+}
+
+/* Bänner */
+header .header-banner {
+  background-image: url("bänner.jpg");
+  width: 100%;
+  height: clamp(220px, 38vh, 420px);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+header .header-banner::after {
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.4));
+}
+header .logo {
+  position: relative;
+  text-align: center;
+  padding: 10px 0 20px 0;
+  animation: fade-slide .9s ease both;
+}
+@keyframes fade-slide {
+  from { opacity:0; transform: translateY(12px) }
+  to   { opacity:1; transform: translateY(0) }
+}
+
+/* Pealkirjad */
+header h1 {
+  font-family: "Gentium Book Plus", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(36px, 6vw, 72px);
+  color: #ffffff;
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 8px #000000;
+  letter-spacing:.02em;
+}
+header h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: clamp(12px, 1.8vw, 18px);
+  letter-spacing: 5px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-top:.25rem;
+}
+
+/* Navigatsioon */
+nav { 
+  background: #fff; 
+  position: sticky; 
+  top: 0; 
+  z-index: 5;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+header nav ul { 
+  display: flex; 
+  gap: 24px; 
+  justify-content: center; 
+  padding: 10px 16px; 
+  margin: 0; 
+}
+header nav ul li { list-style: none; }
+nav ul li a {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: #172029;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 6px;
+}
+nav ul li a::after {
+  content:"";
+  position:absolute; left:0; bottom:0;
+  height:2px; width:0%;
+  background:#9aa4b2;
+  transition: width .35s ease;
+}
+nav ul li a:hover::after,
+nav ul li a:focus-visible::after { width:100%; }
+
+/* Jalus */
+footer {
+  width:100%;
+  padding: 32px 20px;
+  background-color:#172029;
+  margin-top: 32px;
+  color:#e8eef6;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.info { text-align:left; }
+.info p {
+  margin:.2rem 0;
+  font-family:"Open Sans", sans-serif;
+  font-weight:400;
+}
+.info a { color:#e8eef6; text-decoration: underline; text-underline-offset: 2px; }
+.footer-sm {
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-sm img {
+  width: 36px;
+  height: 36px;
+  display:block;
+  border-radius:8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.25);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.footer-sm .sm-link:hover img,
+.footer-sm .sm-link:focus-visible img {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,.35);
+}
+
+/* Pildigalerii */
+hr {
+  color: #4f5663;
+  border-width: 2px;
+  width: 30%;
+  margin: 0 auto 5px;
+}
+.gallery-h2 {
+  font-family: "Gentium Book Plus", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 2px;
+  padding: 10px;
+  color: #3a383d;
+  text-transform: uppercase;
+  text-align: center;
+}
+.gallery-links {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content:center;
+  gap: 20px;
+  padding: 10px 16px 0;
+}
+.gallery-image {
+  margin: 10px;
+  position: relative;
+  text-align: center;
+  flex-basis: 260px;
+  max-width: 320px;
+  display:block;
+}
+.card {
+  position:relative;
+  overflow:hidden;
+  border-radius: 50%;  
+  aspect-ratio: 1 / 1;
+}
+.origin {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 0 16px;
+  text-align:center;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.2;
+
+  font-family:"Open Sans", sans-serif;
+  font-weight:800;
+  letter-spacing:2px;
+  font-size: clamp(16px, 2.2vw, 22px);
+  color:#fff;
+  text-transform: uppercase;
+  text-shadow: 0 6px 18px rgba(0,0,0,.6);
+
+  opacity:0;
+  transform: scale(1.05);
+  background-color: rgba(0,0,0,0);
+  transition: opacity .35s ease, transform .35s ease, background-color .35s ease;
+
+  border-radius: inherit;
+  pointer-events:none;
+  z-index: 3;
+}
+.gallery-image:hover .origin,
+.gallery-image:focus-within .origin {
+  opacity:1;
+  transform: scale(1);
+  background-color: rgba(0,0,0,.28);
+  backdrop-filter: blur(2px);
+}
+.gallery-image:hover img,
+.gallery-image:focus-within img {
+  transform: scale(1.05);
+}
+
+/* Meist sektsioon */
+.about {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 60px 10%;
+  background-color: #fafafa;
+}
+.about-text { flex: 1; }
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.about-text p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+.about-img { flex: 1; text-align: right; }
+.about-img img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Mobiili ja arvutiversioon */
+@media (max-width: 768px) {
+  .about { flex-direction: column; text-align: center; }
+  .about-text { order: 1; }
+  .about-img { order: 2; text-align: center; }
+}
+@media only screen and (min-width: 950px) {
+  header .header-banner { height: clamp(320px, 48vh, 520px); }
+  header h2 { font-size: 20px; margin-top: 8px; }
+  header nav ul li { padding: 10px 0; }
+}
