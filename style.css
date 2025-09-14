@@ -10,7 +10,7 @@
 
 /* Bänner */
 header .header-banner {
-  background-image: url("bänner.jpg");
+  background-image: url("banner.jpg");
   width: 100%;
   height: clamp(220px, 38vh, 420px);
   background-repeat: no-repeat;
